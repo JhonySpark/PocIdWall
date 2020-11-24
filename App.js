@@ -10,17 +10,22 @@ import {
 
 function App() {
   const [token, setToken] = useState('Sem Token');
+
   useEffect(() => {
     const eventEmitter = new NativeEventEmitter(NativeModules.Wall);
     eventEmitter.addListener('TOKEN', event => {
       setToken(event);
     });
+
+    eventEmitter.addListener('log', event => {
+      console.log('teste apollo 1323');
+    });
   }, []);
   const callNativeFunction = () => NativeModules?.Wall?.startSDK();
   return (
     <SafeAreaView style={styles.container}>
-      <Text>{token}</Text>
-      <Button title="Iniciar Fluxo" onPress={callNativeFunction} />
+      {/*  <Text>{token}</Text> */}
+      <Button title="Iniciar teste IDWall" onPress={callNativeFunction} />
     </SafeAreaView>
   );
 }
