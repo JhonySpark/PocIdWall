@@ -42,7 +42,7 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
-    IDwallToolkit.getInstance().init(this, "auth_key");
+    IDwallToolkit.getInstance().init(this, "a10cc164e11824849d1bef80ebbb9adf");
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this); // Remove this line if you don't want Flipper enabled
   }
