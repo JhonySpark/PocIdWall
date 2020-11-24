@@ -27,10 +27,11 @@ public class WallModule extends ReactContextBaseJavaModule {
         super(reactContext);
         this.reactContext = reactContext;
         reactContext.addActivityEventListener(mActivityEventListener);
+       
     }
     private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
 
-        @Override
+ /*        @Override
         public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
             super.onActivityResult(activity, requestCode, resultCode, data);
             String token = "";
@@ -39,9 +40,20 @@ public class WallModule extends ReactContextBaseJavaModule {
                 if(data != null && data.getExtras() != null && data.getExtras().containsKey(IDwallToolkit.TOKEN)) {
                     token = data.getStringExtra(IDwallToolkit.TOKEN);
                     //envia evento ao react native
-                    sendEvent(reactContext, "TOKEN", token);
+                    
                 }
             }
+        } */
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+          String token = "";
+          if(resultCode == RESULT_OK && requestCode == IDwallToolkit.IDWALL_REQUEST){
+            if(data != null && data.getExtras() != null && data.getExtras().containsKey(IDwallToolkit.TOKEN)) {
+              token = data.getStringExtra(IDwallToolkit.TOKEN);
+                sendEvent(reactContext, "TOKEN", token);              
+            }
+          }
         }
 
     };
