@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="idwallPrimary">#06AFEF</color>
+    <color name="idwallTertiary">#45C8FC</color>
+
+    <color name="idwallTextPrimary">#06AFEF</color>
+    <color name="idwallTextSecondary">#2E3A59</color>
+    <color name="idwallTextButton">#FFFFFF</color>
+
+    <color name="idwallSuccessPrimary">#85BC0D</color>
+    <color name="idwallSuccessSecondary">#F5FDCE</color>
 </resources>
